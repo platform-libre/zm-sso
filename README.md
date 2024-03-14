@@ -26,7 +26,9 @@ dnf -y install java-11-openjdk java-11-openjdk-devel maven ant git make rpmdevto
 ```shell
 yum -y install java-11-openjdk java-11-openjdk-devel maven ant git make rpmdevtools rpm-build
 ```
+
 * On Debian or Ubuntu
+  
 ```shell
 apt install -y openjdk-11-jdk maven ant git make
 ```
@@ -144,8 +146,11 @@ Wrote: ~/rpmbuild/RPMS/noarch/zm-sso-1.0.0-1.el7.noarch.rpm
 ```
 
 ## Installation
+
 ### Install jar extension
+
 * Copy jar extension to zimbra server
+  
 ```shell
 cd ~/projects/zimbra/zm-sso
 ssh root@zimbra.server "mkdir -p /opt/zimbra/lib/ext/zm-sso"
@@ -159,6 +164,7 @@ ssh root@zimbra.server "su - zimbra -c '/opt/zimbra/bin/zmmailboxdctl restart'"
 ```
 
 ### Install rpm package
+
 ```shell
 ssh root@zimbra.server "mkdir -p /tmp/zimbra"
 scp ~/rpmbuild/RPMS/noarch/zm-sso-1.0.0-1.el7.noarch.rpm root@zimbra.server:/tmp/zimbra
@@ -166,37 +172,66 @@ ssh root@zimbra.server "rpm -Uvh /tmp/zimbra/zm-sso-1.0.0-1.el7.noarch.rpm"
 ```
 
 ## Configuration
+
 The settings loaded from **zm.sso.properties** file.
+
 The location of this file is **/opt/zimbra/conf/zm.sso.properties**
 
 ### Default client configuration
-* Using a text editor to open **zm.sso.properties** in **/opt/zimbra/conf**. Ex: `vi /opt/zimbra/conf/zm.sso.properties`
-* Specify default pac4j client by setting the value for the **sso.defaultClient** key. Ex: `sso.defaultClient = SAML2Client`
+
+* Using a text editor to open **zm.sso.properties** in **/opt/zimbra/conf**.
+  Ex: `vi /opt/zimbra/conf/zm.sso.properties`
+  
+* Specify default pac4j client by setting the value for the **sso.defaultClient** key.
+  Ex: `sso.defaultClient = SAML2Client`
 
 ### Callback endpoint configuration
+
 To handle authentication, a callback endpoint is necessary to receive callback calls from the identity server and finish the login process.
 
 **Config**:
+
 * Using a text editor to open **zm.sso.properties** in **/opt/zimbra/conf**.
-* Specify callback endpoint by setting the value for the **sso.callbackUrl** key. The path of endpoint can be:
-    * **/service/extension/sso/callback** (using default client. specified in sso.defaultClient). Ex: `sso.callbackUrl = https://mail.zimbra-server.com/service/extension/sso/callback`
-    * **/service/extension/saml/callback** (using SAML client). Ex: `saml.callbackUrl = https://mail.zimbra-server.com/service/extension/saml/callback`
+  
+* Specify callback endpoint by setting the value for
+    
+    * the **sso.callbackUrl** key.
+    
+    * The path of endpoint can be:
+    * **/service/extension/sso/callback** (using default client. specified in sso.defaultClient).
+    * Ex: `sso.callbackUrl = https://mail.zimbra-server.com/service/extension/sso/callback`
+    
+    * **/service/extension/saml/callback** (using SAML client).
+    * Ex: `saml.callbackUrl = https://mail.zimbra-server.com/service/extension/saml/callback`
+      
     * **/service/extension/cas/callback** (using CAS client). Ex: `cas.callbackUrl = https://mail.zimbra-server.com/service/extension/cas/callback`
+      
     * **/service/extension/oidc/callback** (using OpenID Connect client). Ex: `oidc.callbackUrl = https://mail.zimbra-server.com/service/extension/oidc/callback`
+      
 * Specify profile should be saved in session by setting the value for the **sso.saveInSession** key.
+  
 * Specify multi profiles are supported by setting the value for the **sso.multiProfile** key.
+  
 * Specify the session must be renewed by setting the value for the **sso.renewSession** key.
 
 ### Logout endpoint configuration
+
 To handle the logout, a logout endpoint is necessary to perform:
+
 * The local logout by removing the pac4j profiles from the session.
+* 
 * The central logout by calling the identity provider logout endpoint. This is the Single LogOut (SLO) process.
 
 **Config**:
+
 * Using a text editor to open **zm.sso.properties** in **/opt/zimbra/conf**.
+  
 * **sso.localLogout**: It indicates whether a local logout must be performed.
+  
 * **sso.destroySession**: It defines whether we must destroy the web session during the local logout.
+  
 * **sso.centralLogout**: It defines whether a central logout must be performed.
+  
 * **sso.postLogoutURL**: It defines whether logout return url from idp server back to zimbra. By default at the last step of SP initiated logout user will see a blank page.
 
 ### Configuration with any SAML identity provider using the SAML v2.0 protocol.
