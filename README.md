@@ -17,11 +17,12 @@ Copyright (C) 2020-present iWay Vietnam and/or its affiliates. All rights reserv
 * rpm-build for rpm package build.
 
 ### Setting up your build system
-* On Fedora or CentOS 8.x or Red Hat EL 7.x
+* On Rocky Linux 8.x or 7.x
 ```shell
 dnf -y install java-11-openjdk java-11-openjdk-devel maven ant git make rpmdevtools rpm-build
 ```
-* On CentOS 7.x or Red Hat EL 7.x
+* On  Rocky Linux 7.x
+  
 ```shell
 yum -y install java-11-openjdk java-11-openjdk-devel maven ant git make rpmdevtools rpm-build
 ```
@@ -30,7 +31,7 @@ yum -y install java-11-openjdk java-11-openjdk-devel maven ant git make rpmdevto
 apt install -y openjdk-11-jdk maven ant git make
 ```
 
-### Setting the Default Java Version in CentOS 7/8
+### Setting the Default Java Version in Rocky Linux 7/8
 
 You might have 2 different versions of Java on your system. To set one as the default, use the command:
 
@@ -42,6 +43,18 @@ sudo alternatives ––config java
 
 - If you want to change it, type the number of version `11` as we require version `11`, then press Enter.
 
+### Check  JAVA version
+
+```shell
+java -version
+```
+You will get an output like below
+
+```bash
+openjdk version "11.0.22" 2024-01-16 LTS
+OpenJDK Runtime Environment (Red_Hat-11.0.22.0.7-1) (build 11.0.22+7-LTS)
+OpenJDK 64-Bit Server VM (Red_Hat-11.0.22.0.7-1) (build 11.0.22+7-LTS, mixed mode, sharing)
+```
 ### Clone code from `git` repository
 
 ```shell
