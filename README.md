@@ -35,9 +35,9 @@ apt install -y openjdk-11-jdk maven ant git make
 mkdir -p ~/projects/zimbra
 cd ~/projects/zimbra
 git clone https://github.com/iwayvietnam/zm-sso.git
-```
 
 ### Build jar file by using Maven
+
 ```shell
 cd ~/projects/zimbra/zm-sso
 mvn clean package
