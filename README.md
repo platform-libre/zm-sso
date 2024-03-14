@@ -37,6 +37,7 @@ You might have 2 different versions of Java on your system. To set one as the de
 
 ```shell
 sudo alternatives ––config java
+sudo alternatives --config javac
 ```
 
 - The system displays a list of different Java versions. If you like the default, press Enter. ve
@@ -55,6 +56,18 @@ openjdk version "11.0.22" 2024-01-16 LTS
 OpenJDK Runtime Environment (Red_Hat-11.0.22.0.7-1) (build 11.0.22+7-LTS)
 OpenJDK 64-Bit Server VM (Red_Hat-11.0.22.0.7-1) (build 11.0.22+7-LTS, mixed mode, sharing)
 ```
+
+### Check  JAVAC version
+
+```shell
+javac -version
+```
+You will get an output like below
+
+```shell
+avac 11.0.22
+```
+
 ### Clone code from `git` repository
 
 ```shell
@@ -76,6 +89,7 @@ Building jar: ~/projects/zimbra/zm-sso/target/zm-sso-1.0.0-1.jar
 ```
 
 ### Build jar file by using Ant
+
 ```shell
 cd ~/projects/zimbra/zm-sso
 ant jar
@@ -86,6 +100,7 @@ The output should be like this:
 ```
 
 ### Build rpm package
+
 ```shell
 cd ~/projects/zimbra/zm-sso
 make rpmbuild
