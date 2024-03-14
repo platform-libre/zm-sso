@@ -54,6 +54,7 @@ sudo alternatives --config javac
 ```shell
 java -version
 ```
+
 You will get an output like below
 
 ```bash
@@ -67,6 +68,7 @@ OpenJDK 64-Bit Server VM (Red_Hat-11.0.22.0.7-1) (build 11.0.22+7-LTS, mixed mod
 ```shell
 javac -version
 ```
+
 You will get an output like below
 
 ```shell
@@ -106,7 +108,8 @@ Maven home: /usr/share/maven
 Java version: 11.0.22, vendor: Red Hat, Inc., runtime: /usr/lib/jvm/java-11-openjdk-11.0.22.0.7-2.el8.x86_64
 Default locale: en_US, platform encoding: UTF-8
 OS name: "linux", version: "4.18.0-513.5.1.el8_9.x86_64", arch: "amd64", family: "unix"
-``
+```
+
 ### Clone code from `git` repository
 
 ```shell
@@ -167,8 +170,8 @@ scp target/dependencies/*.jar root@zimbra.server:/opt/zimbra/jetty_base/common/l
 scp conf/zm.sso.properties root@zimbra.server:/opt/zimbra/conf
 ```
 
-* Restart mailbox to load the extension.
-
+* Restart `mailbox` to load the extension.
+ 
 ```shell
 ssh root@zimbra.server "su - zimbra -c '/opt/zimbra/bin/zmmailboxdctl restart'"
 ```
