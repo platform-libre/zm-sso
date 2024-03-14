@@ -5,6 +5,7 @@ Copyright (C) 2020-present iWay Vietnam and/or its affiliates. All rights reserv
 
 * Using framework: [pac4j](https://www.pac4j.org) is an easy and powerful security engine for Java to authenticate users,
   get their profiles and manage authorizations in order to secure web applications and web services.
+  
 * Supported authentication mechanisms: [SAML](http://www.pac4j.org/docs/clients/saml.html) -
   [CAS](http://www.pac4j.org/docs/clients/cas.html) -
   [OpenID Connect](http://www.pac4j.org/docs/clients/openid-connect.html)
@@ -17,7 +18,9 @@ Copyright (C) 2020-present iWay Vietnam and/or its affiliates. All rights reserv
 * rpm-build for rpm package build.
 
 ### Setting up your build system
+
 * On Rocky Linux 8.x or 7.x
+  
 ```shell
 dnf -y install java-11-openjdk java-11-openjdk-devel maven ant git make rpmdevtools rpm-build
 ```
@@ -75,6 +78,7 @@ avac 11.0.22
 ```bash
 echo "export JAVA_HOME=/usr/lib/jvm/java-11-openjdk" >> ~/.bashrc
 ```
+
 * Update Env Variables
 
 ```bash
@@ -129,7 +133,9 @@ Building jar: ~/projects/zimbra/zm-sso/target/zm-sso-1.0.0-1.jar
 cd ~/projects/zimbra/zm-sso
 ant jar
 ```
+
 The output should be like this:
+
 ```
 [jar] Building jar: ~/projects/zimbra/zm-sso/dist/zm-sso-1.0.0-1.jar
 ```
@@ -140,7 +146,9 @@ The output should be like this:
 cd ~/projects/zimbra/zm-sso
 make rpmbuild
 ```
+
 The output should be like this:
+
 ```
 Wrote: ~/rpmbuild/RPMS/noarch/zm-sso-1.0.0-1.el7.noarch.rpm
 ```
@@ -158,7 +166,9 @@ scp target/*.jar root@zimbra.server:/opt/zimbra/lib/ext/zm-sso
 scp target/dependencies/*.jar root@zimbra.server:/opt/zimbra/jetty_base/common/lib
 scp conf/zm.sso.properties root@zimbra.server:/opt/zimbra/conf
 ```
+
 * Restart mailbox to load the extension.
+
 ```shell
 ssh root@zimbra.server "su - zimbra -c '/opt/zimbra/bin/zmmailboxdctl restart'"
 ```
