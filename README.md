@@ -30,11 +30,13 @@ yum -y install java-11-openjdk java-11-openjdk-devel maven ant git make rpmdevto
 apt install -y openjdk-11-jdk maven ant git make
 ```
 
-### Clone code from git repository
+### Clone code from `git` repository
+
 ```shell
 mkdir -p ~/projects/zimbra
 cd ~/projects/zimbra
 git clone https://github.com/iwayvietnam/zm-sso.git
+```
 
 ### Build jar file by using Maven
 
