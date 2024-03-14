@@ -68,6 +68,39 @@ You will get an output like below
 avac 11.0.22
 ```
 
+### Set JAVA_HOME
+
+```bash
+echo "export JAVA_HOME=/usr/lib/jvm/java-11-openjdk" >> ~/.bashrc
+```
+* Update Env Variables
+
+```bash
+source  ~/.bashrc
+echo $JAVA_HOME
+```
+* Output
+
+```bash
+/usr/lib/jvm/java-11-openjdk
+```
+
+### Observe `mvn` version
+
+```bash
+mvn -version
+```
+* Output
+
+Should be like below
+
+```
+Apache Maven 3.5.4 (Red Hat 3.5.4-5)
+Maven home: /usr/share/maven
+Java version: 11.0.22, vendor: Red Hat, Inc., runtime: /usr/lib/jvm/java-11-openjdk-11.0.22.0.7-2.el8.x86_64
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "4.18.0-513.5.1.el8_9.x86_64", arch: "amd64", family: "unix"
+``
 ### Clone code from `git` repository
 
 ```shell
