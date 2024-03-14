@@ -30,6 +30,18 @@ yum -y install java-11-openjdk java-11-openjdk-devel maven ant git make rpmdevto
 apt install -y openjdk-11-jdk maven ant git make
 ```
 
+### Setting the Default Java Version in CentOS 7/8
+
+You might have 2 different versions of Java on your system. To set one as the default, use the command:
+
+```shell
+sudo alternatives ––config java
+```
+
+- The system displays a list of different Java versions. If you like the default, press Enter. ve
+
+- If you want to change it, type the number of version `11` as we require version `11`, then press Enter.
+
 ### Clone code from `git` repository
 
 ```shell
